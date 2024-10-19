@@ -24,6 +24,7 @@ PictureEdit::PictureEdit(QWidget *parent) :
     {
         m_psDialog->scaleDialog(0.8);
     });
+    ui->pushButton->setDisabled(true);
     m_psDialog->show();
 }
 
@@ -40,6 +41,7 @@ void PictureEdit::loadPicture()
     this->selectPath = QFileInfo(fileName).absolutePath();
     m_scaledPix = m_srcPix.scaled(ui->label->width(), ui->label->height());
     ui->label->setPixmap(m_scaledPix);
+    ui->pushButton->setDisabled(false);
 }
 
 void PictureEdit::savePicture()
